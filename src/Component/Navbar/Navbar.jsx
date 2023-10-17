@@ -1,5 +1,5 @@
 import {  NavLink } from "react-router-dom";
-import logo from "../../assets/images/logo.png";
+import logo from "../../assets/images/techland-logo.png";
 
 
 const Navbar = () => {
@@ -9,7 +9,10 @@ const Navbar = () => {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={"/prodacts"}>Prodacts</NavLink>
+        <NavLink to={"/addprodacts"}>Add Prodact</NavLink>
+      </li>
+      <li>
+        <NavLink to={"/cart"}>My Cart</NavLink>
       </li>
     </>
   );
@@ -41,7 +44,7 @@ const Navbar = () => {
           </ul>
         </div>
         {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
-        <img className="h-8 w-20" src={logo} alt="logo" />
+        <img className="h-14 w-24" src={logo} alt="logo" />
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navlink}</ul>
