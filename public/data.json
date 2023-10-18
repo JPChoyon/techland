@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "image": "https://i.imgur.com/1uUhVEV.jpg",
+    "name": "Google",
+    "description": "Premium quality product with innovative features, designed to simplify your daily life."
+  },
+  {
+    "id": 2,
+    "image": "https://i.imgur.com/3xRs8xP.png",
+    "name": "Sony",
+    "description": "Sleek and stylish item that adds a touch of elegance to your home decor."
+  },
+  {
+    "id": 3,
+    "image": "https://i.imgur.com/pnUei2Q.png",
+    "name": "Intel",
+    "description": "Efficient and affordable service tailored to meet your specific needs."
+  },
+  {
+    "id": 4,
+    "image": "https://i.imgur.com/8ilhyYW.jpg",
+    "name": "Walton",
+    "description": "Cutting-edge gadget that enhances productivity and simplifies daily tasks."
+  },
+  {
+    "id": 5,
+    "image": "https://i.imgur.com/t8b5Dmg.png",
+    "name": "Nokia",
+    "description": "Versatile accessory that complements a wide range of devices and applications."
+  },
+  {
+    "id": 6,
+    "image": "https://i.imgur.com/rqDVBmv.png",
+    "name": "Hp",
+    "description": "Highly durable product with a timeless design, built to last a lifetime."
+  }
+]
