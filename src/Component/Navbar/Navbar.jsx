@@ -1,6 +1,5 @@
-import {  NavLink } from "react-router-dom";
-import logo from "../../assets/images/techland-logo.png";
-
+import { NavLink } from "react-router-dom";
+import logo from "../../assets/images/logo.png";
 
 const Navbar = () => {
   const navlink = (
@@ -38,13 +37,13 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {navlink}
           </ul>
         </div>
-        {/* <a className="btn btn-ghost normal-case text-xl">daisyUI</a> */}
-        <img className="h-14 w-24" src={logo} alt="logo" />
+
+        <img className="h-16 w-24" src={logo} alt="logo" />
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navlink}</ul>
@@ -58,7 +57,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-100 rounded-box w-52"
           >
             <li>
               <a className="justify-between">
@@ -75,7 +74,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-    </div>
+     </div>
   );
 };
 
