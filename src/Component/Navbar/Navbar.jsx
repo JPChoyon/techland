@@ -8,7 +8,7 @@ const Navbar = () => {
         <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink to={"/addprodacts"}>Add Prodact</NavLink>
+        <NavLink to={"/addprodact"}>Add Prodact</NavLink>
       </li>
       <li>
         <NavLink to={"/cart"}>My Cart</NavLink>
@@ -37,7 +37,7 @@ const Navbar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu z-50 menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
           >
             {navlink}
           </ul>
@@ -74,7 +74,7 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-     </div>
+    </div>
   );
 };
 
