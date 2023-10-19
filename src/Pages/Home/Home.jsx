@@ -9,22 +9,23 @@ const Home = () => {
   return (
     <div>
       <Banner></Banner>
+      {/* offer section  */}
       <div className="py-5">
         <h1 className="text-center text-4xl font-bold py-6">
           Offer Of The Sesson
         </h1>
         <img src={offer} alt="" />
       </div>
+      {/* brand name  */}
       <div className="mt-16">
         <h1 className="text-3xl font-bold text-center">Brand Name</h1>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mx-auto py-10">
           {brands.map((brand) => (
             <BrandCard key={brand.id} brand={brand}></BrandCard>
           ))}
         </div>
       </div>
-
+      {/* walton laptop image  */}
       <div>
         <img src={laptop} alt="" />
       </div>

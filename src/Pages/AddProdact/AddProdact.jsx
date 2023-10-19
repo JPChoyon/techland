@@ -4,6 +4,7 @@ const AddProdact = () => {
   const handleAddProdact = (e) => {
     e.preventDefault();
     const form = e.target;
+    const name = form.name.value;
     const brand = form.brand.value;
     const type = form.type.value;
     const price = form.price.value;
@@ -11,7 +12,7 @@ const AddProdact = () => {
     const rating = form.rating.value;
     const image = form.image.value;
 
-    const prodact = { brand, type, price, description, rating, image };
+    const prodact = { name,brand, type, price, description, rating, image };
     console.log(prodact);
     fetch("http://localhost:5000/prodact", {
       method: "POST",
