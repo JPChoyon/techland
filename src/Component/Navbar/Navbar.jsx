@@ -1,7 +1,15 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
+import { useContext } from "react";
+import { AuthContext } from "../../Context/Context";
 
 const Navbar = () => {
+
+   const { user, logOut } = useContext(AuthContext);
+
+   const handleLogout = () => {
+     logOut().then().catch();
+   };
   const navlink = (
     <>
       <li>
@@ -49,30 +57,30 @@ const Navbar = () => {
         <ul className="menu menu-horizontal px-1">{navlink}</ul>
       </div>
       <div className="navbar-end">
-        <div className="dropdown dropdown-end">
-          <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-            <div className="w-10 rounded-full">
-              <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-            </div>
-          </label>
-          <ul
-            tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-50 p-2 shadow bg-base-100 rounded-box w-52"
-          >
-            <li>
-              <a className="justify-between">
-                Profile
-                <span className="badge">New</span>
-              </a>
-            </li>
-            <li>
-              <a>Settings</a>
-            </li>
-            <li>
-              <a>Logout</a>
-            </li>
-          </ul>
-        </div>
+        {user ? (
+          <>
+            {user?.displayName ? (
+              <>
+                <h2>{user?.displayName}</h2>
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={user?.photoURL} alt={user?.displayName} />
+                  </div>
+                </label>
+              </>
+            ) : (
+              <h2 className="font-bold">{user?.displayName}</h2>
+            )}
+
+            <button onClick={handleLogout} className="btn btn-sm  btn-ghost">
+              Log Out
+            </button>
+          </>
+        ) : (
+          <Link to="/login">
+            <button className="btn btn-sm  btn-ghost">Login</button>
+          </Link>
+        )}
       </div>
     </div>
   );
