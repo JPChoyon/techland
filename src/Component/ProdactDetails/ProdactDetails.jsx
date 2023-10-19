@@ -1,18 +1,13 @@
 import Rating from "react-rating";
-import { useLoaderData, useParams } from "react-router-dom";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 import yelloStar from "../../assets/images/star-yellow.png";
 import grayStar from "../../assets/images/star-grey.png";
 import redStar from "../../assets/images/star-red.png";
 
-
-
 const ProdactDetails = () => {
-  const { name, _id } = useParams();
+  const { name } = useParams();
   const prodacts = useLoaderData();
-  console.log(prodacts);
-  // fetch(`http://localhost:5000/prodact/${name}`)
-  //   .then((res) => res.json())
-  //   .then((data) => console.log(data));
+  
   return (
     <div>
       <h1 className="text-4xl py-4 font-bold text-center">{name}'s prodact</h1>
@@ -38,24 +33,9 @@ const ProdactDetails = () => {
                   <span>
                     <Rating
                       placeholderRating={parseFloat(prodact.rating)}
-                      emptySymbol={
-                        <img
-                          src={grayStar}
-                          className="icon"
-                        />
-                      }
-                      placeholderSymbol={
-                        <img
-                          src={redStar}
-                          className="icon"
-                        />
-                      }
-                      fullSymbol={
-                        <img
-                          src={yelloStar}
-                          className="icon"
-                        />
-                      }
+                      emptySymbol={<img src={grayStar} className="icon" />}
+                      placeholderSymbol={<img src={redStar} className="icon" />}
+                      fullSymbol={<img src={yelloStar} className="icon" />}
                     />
                   </span>
                   <span className="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ml-3">
@@ -67,12 +47,16 @@ const ProdactDetails = () => {
                   <span className="text-3xl font-bold text-gray-900 dark:text-white">
                     {prodact.price}$
                   </span>
-                  <a
-                    href="#"
-                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                  >
-                    Details
-                  </a>
+                  <Link to={`/brandDetails/${prodact._id}`}>
+                    <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      Details
+                    </button>
+                  </Link>
+                  <Link to={`/updateprodact/${prodact._id}`}>
+                    <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                      Update
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>

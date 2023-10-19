@@ -12,7 +12,7 @@ const MainLayout = () => {
       <Outlet></Outlet>
       <Footer></Footer>
       <Toaster></Toaster>
-      <Rating />
+      
     </div>
   );
 };
