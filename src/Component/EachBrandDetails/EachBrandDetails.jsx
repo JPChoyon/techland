@@ -4,10 +4,35 @@ import { useLoaderData } from "react-router-dom";
 import yelloStar from "../../assets/images/star-yellow.png";
 import grayStar from "../../assets/images/star-grey.png";
 import redStar from "../../assets/images/star-red.png";
+import Swal from "sweetalert2";
 
 const EachBrandDetails = () => {
   const details = useLoaderData();
   const { _id, name, brand, price, description, rating, image } = details;
+
+  const cartData = { name, brand, price, description, rating, image };
+  const handleCart = () => {
+    fetch("https://techland-server.vercel.app/mycart", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(cartData),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        if (data.insertedId) {
+          Swal.fire({
+            tposition: "center",
+            icon: "success",
+            title: "Your Product Added successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        }
+      });
+  };
 
   return (
     <div>
@@ -49,11 +74,13 @@ const EachBrandDetails = () => {
                 <span className="text-xl font-bold text-gray-900">
                   Price: {price}$
                 </span>
-                {/* <Link to={`/brandDetails/${_id}`}> */}
-                <button className=" flex items-center gap-4 px-8 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+
+                <button
+                  onClick={handleCart}
+                  className=" flex items-center gap-4 px-8 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                >
                   Add To Cart<GiShoppingCart></GiShoppingCart>
                 </button>
-                {/* </Link> */}
               </div>
             </div>
           </div>

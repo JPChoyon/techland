@@ -37,6 +37,7 @@ const Router = createBrowserRouter([
             <Cart></Cart>
           </Privetroute>
         ),
+        loader: () => fetch("https://techland-server.vercel.app/deletecart"),
       },
       {
         path: "/login",
@@ -54,7 +55,7 @@ const Router = createBrowserRouter([
           </Privetroute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/prodact/${params.name}`),
+          fetch(`https://techland-server.vercel.app/prodact/${params.name}`),
       },
       {
         path: "/updateprodact/:id",
@@ -64,7 +65,9 @@ const Router = createBrowserRouter([
           </Privetroute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/prodactDetails/${params.id}`),
+          fetch(
+            `https://techland-server.vercel.app/prodactDetails/${params.id}`
+          ),
       },
       {
         path: "/brandDetails/:id",
@@ -74,7 +77,9 @@ const Router = createBrowserRouter([
           </Privetroute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/prodactDetails/${params.id}`),
+          fetch(
+            `https://techland-server.vercel.app/prodactDetails/${params.id}`
+          ),
       },
     ],
   },

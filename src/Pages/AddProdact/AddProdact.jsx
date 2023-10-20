@@ -12,9 +12,9 @@ const AddProdact = () => {
     const rating = form.rating.value;
     const image = form.image.value;
 
-    const prodact = { name,brand, type, price, description, rating, image };
+    const prodact = { name, brand, type, price, description, rating, image };
     console.log(prodact);
-    fetch("http://localhost:5000/prodact", {
+    fetch("https://techland-server.vercel.app/prodact", {
       method: "POST",
       headers: {
         "content-type": "application/json",

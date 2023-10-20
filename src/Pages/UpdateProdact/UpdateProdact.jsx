@@ -3,8 +3,9 @@ import { useLoaderData } from "react-router-dom";
 
 const UpdateProdact = () => {
   const prodacts = useLoaderData();
-  const { _id,name, brand, type, price, description, rating, image } = prodacts;
-  console.log(prodacts)
+  const { _id, name, brand, type, price, description, rating, image } =
+    prodacts;
+  console.log(prodacts);
 
   const handleAddProdact = (e) => {
     e.preventDefault();
@@ -19,7 +20,7 @@ const UpdateProdact = () => {
 
     const prodact = { name, brand, type, price, description, rating, image };
     console.log(prodact);
-    fetch(`http://localhost:5000/prodactDetails/${_id}`, {
+    fetch(`https://techland-server.vercel.app/prodactDetails/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -28,8 +29,7 @@ const UpdateProdact = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-       
-        if (data.modifiedCount>0) {
+        if (data.modifiedCount > 0) {
           toast.success("Successfully Updated Prodact!");
         }
       });
