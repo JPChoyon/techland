@@ -23,12 +23,12 @@ const EachBrandDetails = () => {
             </a>
             <div className="px-5 pb-5">
               <a href="#">
-                <h5 className="text-xl font-semibold tracking-tight text-gray-900">
+                <h5 className="text-2xl font-extrabold tracking-tight text-red-400">
                   {name}
                 </h5>
               </a>
-              <div className="flex items-center mt-2.5 mb-5">
-                rating :
+              <div className="flex font-bold items-center mt-2.5 mb-5">
+                Rating :
                 <span>
                   <Rating
                     placeholderRating={parseFloat(rating)}
@@ -41,10 +41,13 @@ const EachBrandDetails = () => {
                   {parseFloat(rating)}
                 </span>
               </div>
+              <h4 className="text-xl font-semibold ">
+                Brand : <span className="text-blue-500">{brand}</span>
+              </h4>
               <p>{description}</p>
               <div className="flex items-center justify-between">
-                <span className="text-3xl font-bold text-gray-900 dark:text-white">
-                  {price}$
+                <span className="text-xl font-bold text-gray-900">
+                  Price: {price}$
                 </span>
                 {/* <Link to={`/brandDetails/${_id}`}> */}
                 <button className=" flex items-center gap-4 px-8 text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
