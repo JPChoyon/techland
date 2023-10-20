@@ -3,8 +3,8 @@ import { useLoaderData } from "react-router-dom";
 
 const UpdateProdact = () => {
   const prodacts = useLoaderData();
-  // const { name, brand, type, price, description, rating, image } = prodact;
-  console.log(prodacts.name)
+  const { _id,name, brand, type, price, description, rating, image } = prodacts;
+  console.log(prodacts)
 
   const handleAddProdact = (e) => {
     e.preventDefault();
@@ -19,7 +19,7 @@ const UpdateProdact = () => {
 
     const prodact = { name, brand, type, price, description, rating, image };
     console.log(prodact);
-    fetch(`http://localhost:5000/prodact/652ffd880f2b21f329e220fb`, {
+    fetch(`http://localhost:5000/prodactDetails/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",
@@ -28,8 +28,9 @@ const UpdateProdact = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        if (data.insertedId) {
-          toast.success("Successfully toasted!");
+       
+        if (data.modifiedCount>0) {
+          toast.success("Successfully Updated Prodact!");
         }
       });
   };
@@ -48,7 +49,7 @@ const UpdateProdact = () => {
                 type="text"
                 placeholder="Prodact Name"
                 className="input input-bordered w-full "
-                required
+                defaultValue={name}
               />
             </div>
             <div className="w-full mx-auto mb-2">
@@ -58,7 +59,7 @@ const UpdateProdact = () => {
                 type="text"
                 placeholder="Brand Name"
                 className="input input-bordered w-full "
-                required
+                defaultValue={brand}
               />
             </div>
           </div>
@@ -70,7 +71,7 @@ const UpdateProdact = () => {
                 type="text"
                 placeholder="Prodact Type"
                 className="input input-bordered w-full "
-                required
+                defaultValue={type}
               />
             </div>
             <div className="w-full mx-auto mb-2">
@@ -80,7 +81,7 @@ const UpdateProdact = () => {
                 type="text"
                 placeholder="Price"
                 className="input input-bordered w-full "
-                required
+                defaultValue={price}
               />
             </div>
           </div>
@@ -92,7 +93,7 @@ const UpdateProdact = () => {
                 type="text"
                 placeholder="Short description"
                 className="input input-bordered w-full "
-                required
+                defaultValue={description}
               />
             </div>
             <div className="w-full mx-auto mb-2">
@@ -102,7 +103,7 @@ const UpdateProdact = () => {
                 type="text"
                 placeholder="Rating"
                 className="input input-bordered w-full "
-                required
+                defaultValue={rating}
               />
             </div>
           </div>
@@ -114,11 +115,11 @@ const UpdateProdact = () => {
               type="text"
               placeholder="Prodact image link"
               className="input input-bordered w-full mx-auto"
-              required
+              defaultValue={image}
             />
           </div>
           <button className="btn btn-block bg-red-500 text-white hover:text-black">
-            Submit Prodact
+            Update Prodact
           </button>
         </form>
       </div>
