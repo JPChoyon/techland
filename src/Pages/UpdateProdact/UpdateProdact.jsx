@@ -20,13 +20,16 @@ const UpdateProdact = () => {
 
     const prodact = { name, brand, type, price, description, rating, image };
     console.log(prodact);
-    fetch(`https://techland-server.vercel.app/prodactDetails/${_id}`, {
-      method: "PUT",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(prodact),
-    })
+    fetch(
+      `https://techland-server-jpchoyon-jp-choyon-khans-projects.vercel.app/prodactDetails/${_id}`,
+      {
+        method: "PUT",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(prodact),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {

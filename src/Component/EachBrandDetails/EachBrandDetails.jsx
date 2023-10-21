@@ -12,13 +12,16 @@ const EachBrandDetails = () => {
 
   const cartData = { name, brand, price, description, rating, image };
   const handleCart = () => {
-    fetch("https://techland-server.vercel.app/mycart", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(cartData),
-    })
+    fetch(
+      "https://techland-server-jpchoyon-jp-choyon-khans-projects.vercel.app/mycart",
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(cartData),
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

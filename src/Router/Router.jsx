@@ -37,7 +37,10 @@ const Router = createBrowserRouter([
             <Cart></Cart>
           </Privetroute>
         ),
-        loader: () => fetch("https://techland-server.vercel.app/deletecart"),
+        loader: () =>
+          fetch(
+            "https://techland-server-jpchoyon-jp-choyon-khans-projects.vercel.app/deletecart"
+          ),
       },
       {
         path: "/login",
@@ -55,7 +58,9 @@ const Router = createBrowserRouter([
           </Privetroute>
         ),
         loader: ({ params }) =>
-          fetch(`https://techland-server.vercel.app/prodact/${params.name}`),
+          fetch(
+            `https://techland-server-jpchoyon-jp-choyon-khans-projects.vercel.app/prodact/${params.name}`
+          ),
       },
       {
         path: "/updateprodact/:id",
@@ -66,7 +71,7 @@ const Router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://techland-server.vercel.app/prodactDetails/${params.id}`
+            `https://techland-server-jpchoyon-jp-choyon-khans-projects.vercel.app/prodactDetails/${params.id}`
           ),
       },
       {
@@ -78,7 +83,7 @@ const Router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://techland-server.vercel.app/prodactDetails/${params.id}`
+            `https://techland-server-jpchoyon-jp-choyon-khans-projects.vercel.app/prodactDetails/${params.id}`
           ),
       },
     ],
